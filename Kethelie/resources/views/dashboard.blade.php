@@ -19,11 +19,17 @@
         </a>
         <div class="btn-group dropstart">
           <button class="btn btn-link" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="icons/person-circle-outline.svg" class="object-fit-cover" alt="..." width="40" height="35" />
+          @if (Auth::user()->image)
+            <img src="{{ asset('storage/' .Auth::user()->image) }}" class="object-fit-cover rounded-circle border border-1 border-success" alt="Foto Profile" width="45" height="45" />
+          @else
+            <img src="icons/person-circle-outline.svg" class="object-fit-cover rounded-circle border border-1 border-success" alt="Foto Profile" width="45" height="45" />
+          @endif
           </button>
           <ul class="dropdown-menu bg-dark-subtle" style="top: 50px; right: -10px">
             <li><a class="dropdown-item" href="{{ route('profile') }}">Profile</a></li>
             <li><a class="dropdown-item" href="{{ route('logout') }}">Logout</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" disabled>{{ Auth::user()->nama }} | {{ Auth::user()->umur }} </a></li>
           </ul>
         </div>
       </div>
