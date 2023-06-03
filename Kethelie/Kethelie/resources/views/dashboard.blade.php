@@ -28,20 +28,31 @@
         </div>
       </div>
     </nav>
-    <nav class="navbar navbar-light bg-success fixed-bottom">
-      <div class="container-fluid ms-3">
-        <a class="navbar-brand" href="#">
-          <p style="margin: 50px"></p>
-        </a>
-      </div>
-    </nav>
 
     <h1 class="position-relative mt-4 p-3 text-md-center text-success">Ke The Lie</h1>
 
-    <div class="rounded text-center">
-      <a href="{{ route('products.index') }}"><img src="images/ke the lie.jpg" class="rounded-circle me-5 border border-4 border-success" alt="Produk" width="300" /></a>
-      <a href=""><img src="images/ke the lie.jpg" class="rounded-circle me-5 border border-4 border-success" alt="Maintenance" width="300" /></a>
-      <a href=""><img src="images/ke the lie.jpg" class="rounded-circle me-5 border border-4 border-success" alt="Maintenance" width="300" /></a>
+    <div class="row p-3 position-relative rounded text-center">
+      @if (Auth::user()-> isOwner())
+      <div class="col m-4" >
+        <a href="{{ route('products.index') }}"><img src="images/ke the lie.jpg" class="rounded-circle  border border-4 border-success" alt="Produk" width="300" /></a>
+      </div>
+      <div class="col m-4" >
+        <a href="{{ route('Bahan.index') }}"><img src="images/ke the lie.jpg" class="rounded-circle  border border-4 border-success" alt="Maintenance" width="300" /></a>
+      </div> 
+      <div class="col m-4" >
+        <a href="{{ route('owners.index') }}"><img src="images/ke the lie.jpg" class="rounded-circle  border border-4 border-success" alt="Maintenance" width="300" /></a>
+      </div>
+      <div class="col m-4" >
+        <a href="{{ url('/pemesanan') }}"><img src="images/ke the lie.jpg" class="rounded-circle  border border-4 border-success" alt="Maintenance" width="300" /></a>
+      </div>
+      @else
+      <div class="col m-4" >
+        <a href="{{ route('products.index') }}"><img src="images/ke the lie.jpg" class="rounded-circle border border-4 border-success" alt="Maintenance" width="300" /></a>
+      </div>
+      <div class="col m-4" >
+        <a href="{{ url('/pemesanan') }}"><img src="images/ke the lie.jpg" class="rounded-circle  border border-4 border-success" alt="Maintenance" width="300" /></a>
+      </div>
+        @endif
     </div>
 
     <script

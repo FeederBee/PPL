@@ -2,6 +2,8 @@
 
 namespace App\Models;
 use App\Models\User;
+use App\Models\Ulasan;
+use App\Models\Pesanan;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -17,6 +19,16 @@ class Product extends Model
 
     public function user(): BelongsTo
     {
-    return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class);
+    }
+
+    public function pesanan()
+    {
+        return $this->hasMany(Pesanan::class);
+    }
+
+    public function ulasan()
+    {
+        return $this->hasMany(Ulasan::class);
     }
 }

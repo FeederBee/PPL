@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+// use App\Models\Product;
+use App\Models\Ulasan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -16,16 +18,22 @@ class ProductController extends Controller
      */
     public function index()
     {
+        $user = Auth::user();
         if (Auth::user()->isOwner()){
-            $user = Auth::user();
             $products = Product::whereHas('user', function ($query) use ($user) {
                 $query->where('user_id', $user->id);
             })->get();
-            return view('products.owner',compact('user','products'))->with('i', (request()->input('page', 1) - 1) * 5);
+
+            // $ulasans = Ulasan::whereHas('user', function ($query) use ($user) {
+            //     $query->where('id_product', $products->id);
+            // })->get();
+            $ulasans = Ulasan::all();
+            return view('products.owner',compact('user','products', 'ulasans'))->with('i', (request()->input('page', 1) - 1) * 5);
 
         }else {
             $products = Product::all();
-            return view('products.customer',compact('products'));
+            $ulasans = Ulasan::all();
+            return view('products.customer',compact('products', 'ulasans', 'user'));
 
         }
 
@@ -37,10 +45,10 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        return view('products.create');
-    }
+    // public function create()
+    // {
+    //     return view('products.create');
+    // }
 
     /**
      * Store a newly created resource in storage.
@@ -79,10 +87,10 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
-    {
-        return view('products.show',compact('product'));
-    }
+    // public function show(Product $product)
+    // {
+    //     return view('products.show',compact('product'));
+    // }
 
     /**
      * Show the form for editing the specified resource.
@@ -90,10 +98,10 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
-    {
-        return view('products.edit',compact('product'));
-    }
+    // public function edit(Product $product)
+    // {
+    //     return view('products.edit',compact('product'));
+    // }
 
     /**
      * Update the specified resource in storage.
@@ -141,5 +149,30 @@ class ProductController extends Controller
         $userId = Auth::id(); // Mengambil ID pengguna yang sedang login
         return view('products.index', compact('userId'));
     }
+
+    // public function show()
+    // {
+    //     $user = Auth::user();
+    //     $userId=Auth::id();
+
+    //     if (Auth::user()->isOwner()){
+    //         $ulasans = Ulasan::whereHas('user', function ($query) use ($user) {
+    //             $query->where('id_pengulas', $user->id);
+    //         })->get();
+    //         return view('products.owner', compact('ulasans'));
+
+    //     }else
+    //     {
+    //         $ulasans = Ulasan::whereHas('user', function ($query) use ($user) {
+    //             $query->where('id_pengulas', $user->id);
+    //         })->get();
+    //         // $ulasans = Pesanan::all();
+    //         return view('ulasan.customer', compact('ulasans', 'user'));
+
+    //     }
+    //     // $ulasans = Ulasan::all();
+    //     // return view('ulasan.customer', compact('ulasans', 'user'));
+
+    // }
 
 }

@@ -23,7 +23,7 @@
     </nav>
     <h2 class="mt-4 text-success" style="text-align: center">Silakan Mendaftar Terlebih Dahulu!</h2>
     <!-- Form untuk mengisi data user -->
-    <form action="{{ route('register.save') }}" method="POST" class="user row g-3 bg-light position-absolute border border-2 border-success ps-5 mt-2 pe-5 pb-3 pt-2text-success"
+    <form action="{{ route('register.save') }}" method="POST" class="user row g-3 bg-light position-absolute border border-2 border-success ps-5 mt-2 mb-4 pe-5 pb-3 pt-2text-success"
             width="100px"
             style="--bs-bg-opacity: 0.6; width: 75%; left: 13%">
                 @csrf
@@ -43,7 +43,7 @@
                 </div>
                 <div class="form-group col-md-6">
                     <label class="form-label">Umur</label>
-                  <input name="umur" type="text" class="form-control form-control-user @error('umur')is-invalid @enderror" id="exampleInputUmur" placeholder="Umur Anda">
+                  <input name="umur" type="number" class="form-control form-control-user @error('umur')is-invalid @enderror" id="exampleInputUmur" placeholder="Umur Anda">
                   @error('umur')
                     <span class="invalid-feedback">{{ $message }}</span>
                   @enderror

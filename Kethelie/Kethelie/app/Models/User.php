@@ -57,13 +57,23 @@ class User extends Authenticatable
     return $this->hasMany(Product::class);
     }
 
-    public function uploadImage()
+    // public function uploadImage()
+    // {
+    // return $this->hasMany(UploadImage::class);
+    // }
+
+    public function bahan()
     {
-    return $this->hasMany(UploadImage::class);
+    return $this->hasMany(Bahan::class);
     }
 
     public function isOwner()
     {
         return $this->status === 'Owner';
+    }
+
+    public function listTeman()
+    {
+        return $this->hasMany(ListTeman::class);
     }
 }
