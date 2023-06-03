@@ -23,7 +23,7 @@
     <div class="row">
     <div class="col"></div>
       <div class="col-2">
-        <button class="btn btn-outline-success" type="button" data-bs-toggle="collapse" data-bs-target="#DaftarTeman" aria-expanded="false" aria-controls="DaftarTeman" style="width:130px">
+        <button id="teman" class="btn btn-outline-success" type="button" data-bs-toggle="collapse" data-bs-target="#DaftarTeman" aria-expanded="false" aria-controls="DaftarTeman" style="width:130px">
         Teman
         </button>
       </div>
@@ -31,7 +31,7 @@
         <h3 class="m-4">Daftar Owner</h3>
       </div> -->
       <div class="col-2">
-        <button class="btn btn-outline-success" type="button" data-bs-toggle="collapse" data-bs-target="#DaftarOwners" aria-expanded="false" aria-controls="DaftarOwners" style="width:130px">
+        <button id="owners" class="btn btn-outline-success" type="button" data-bs-toggle="collapse" data-bs-target="#DaftarOwners" aria-expanded="false" aria-controls="DaftarOwners" style="width:130px">
         Owners
         </button>
       </div>
@@ -153,5 +153,35 @@
       integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
       crossorigin="anonymous"
     ></script>
+  <script>
+    var teman = document.getElementById('teman');
+    var owners = document.getElementById('owners');
+
+    teman.addEventListener('click', function() {
+        if (teman.classList.contains('active')) {
+            teman.classList.remove('active');
+        } else {
+            teman.classList.add('active');
+        }
+    });
+
+    owners.addEventListener('click', function() {
+        if (owners.classList.contains('active')) {
+            owners.classList.remove('active');
+        } else {
+            owners.classList.add('active');
+        }
+    });
+
+    document.addEventListener('click', function(event) {
+        var target = event.target;
+        if (target !== teman && !teman.contains(target)) {
+            teman.classList.remove('active');
+        }
+        if (target !== owners && !owners.contains(target)) {
+            owners.classList.remove('active');
+        }
+    });
+  </script>
   </body>
 </html>
