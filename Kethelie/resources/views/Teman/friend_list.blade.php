@@ -27,9 +27,6 @@
         Teman
         </button>
       </div>
-      <!-- <div class="col">
-        <h3 class="m-4">Daftar Owner</h3>
-      </div> -->
       <div class="col-2">
         <button id="owners" class="btn btn-outline-success" type="button" data-bs-toggle="collapse" data-bs-target="#DaftarOwners" aria-expanded="false" aria-controls="DaftarOwners" style="width:130px">
         Owners
@@ -74,7 +71,6 @@
           <div>
             <!-- Nama User -->
             <p class="form-label fs-5 text-success text-center mt-3">{{ $teman-> no_hp }}</p>
-            <!-- <hr class="text-success"> -->
           </div>
           <hr class="text-success">
           <form action="{{ route('addfriends.destroy', $teman->id) }}" class="row g-2 pe-4 ps-4 mb-2" method="POST">
@@ -84,13 +80,14 @@
           </form>
           <div class="row g-2 pe-4 ps-4 mb-2">
 
-            <button class="btn btn-success" type="submit">Message </button>
+            <a href="/messages/{{ $teman->id_teman_user }}" class="btn btn-success">Message</a>
           </div>
         </div>
-        @endforeach
       </div>
+      @endforeach
     </div>
   </div>
+</div>
 </div>
 @endif
 
@@ -100,6 +97,7 @@
     <div class="container text-center">
       <div class="row row-cols-5">
         @foreach ($userOwners as $user)
+
         <div class="col m-3 border border-1 border-success rounded">
           <!-- foto -->
           <div>
@@ -140,12 +138,12 @@
             <button class="btn btn-success" type="submit" >+add friend </button>
           </form>
         </div>
+
         @endforeach
       </div>
     </div>
   </div>
 </div>
-
 
 
 <script

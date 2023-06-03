@@ -22,7 +22,6 @@ return new class extends Migration
             $table->string('no_hp',12);
             $table->string('image')->nullable();
             $table->foreign('user_id')->references('id')->on('users');
-            // $table->foreign('id_teman_user')->references('id')->on('users');
             $table->timestamps();
         });
     }

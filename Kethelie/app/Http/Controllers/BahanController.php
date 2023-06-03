@@ -17,7 +17,7 @@ class BahanController extends Controller
         $user = Auth::user();
         $bahans = Bahan::whereHas('user', function ($query) use ($user) {
             $query->where('user_id', $user->id);
-        })->get();
+        })->orderBy('created_at', 'desc')->get();
         return view('bahan.layout',compact('user','bahans'))->with('i', (request()->input('page', 1) - 1) * 5);
         
 

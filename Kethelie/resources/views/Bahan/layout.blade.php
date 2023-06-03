@@ -101,7 +101,7 @@
                    </div>
                  </div>
                  <div class="modal-footer">
-                   <!-- <button class="btn btn-danger" data-bs-dismiss="modal">Batal</button> -->
+                   
                    <button class="btn btn-success" type="submit" >Tambahkan</button>
                  </div>
                </div>

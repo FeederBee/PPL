@@ -14,28 +14,25 @@ class ListTemanController extends Controller
     //
     public function index()
     {
-        if (Auth::user()->isOwner()){
+        if (Auth::user()->isOwner()) {
             $loggedInUserId = Auth::id();
-            $listTeman = ListTeman::all();
+            $listTeman = ListTeman::where('user_id', $loggedInUserId)->get();
 
-            if ($listTeman->isNotEmpty() && $listTeman->contains('status', 'Friend')){
-                $userOwners = User::where('id', '!=', $loggedInUserId)
-                            ->where('status','=', 'Owner')
-                            ->whereNotIn('id', $listTeman->pluck('id_teman_user'))
-                            ->get(); 
-                $temans=ListTeman::where('user_id', '=', $loggedInUserId)
-                        ->where('status','=','Friend')
-                        ->get();
-                return view('Teman.friend_list',compact('temans','listTeman','userOwners','loggedInUserId'));
-            }else{
-                $userOwners = User::where('id', '!=', $loggedInUserId)
-                            ->where('status','=', 'Owner')
-                            ->get(); 
-                return view('Teman.friend_list', compact('listTeman', 'userOwners'));
+            $userOwners = User::where('id', '!=', $loggedInUserId)
+                ->where('status', 'Owner');
+
+            if ($listTeman->isNotEmpty()) {
+                $userOwners->whereNotIn('id', $listTeman->pluck('id_teman_user'));
             }
+
+            $userOwners = $userOwners->get();
+            $temans = ListTeman::where('user_id', $loggedInUserId)
+                ->where('status', 'Friend')
+                ->get();
+
+            return view('Teman.friend_list', compact('temans', 'listTeman', 'userOwners', 'loggedInUserId'));
         }
     }
-
 
     public function create()
     {
@@ -66,6 +63,12 @@ class ListTemanController extends Controller
         $teman = ListTeman::findOrFail($id);
         $teman->delete();
         return redirect()->back()->with('success', 'Teman berhasil dihapus');
-        // return redirect()->route('owners.index')->with('success','Product deleted successfully');
+    }
+
+    public function listcontact($id)
+    {
+        $teman = ListTeman::findOrFail($id);
+        return view('message.show',compact('temans'));
+
     }
 }

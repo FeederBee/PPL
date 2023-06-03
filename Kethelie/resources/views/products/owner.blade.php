@@ -5,13 +5,6 @@
       <h3 class="m-4">Daftar Produk</h3>
       <!-- add product -->
       <div>
-        <!-- <button onclick="window.location='{{ route('products.create') }}'"
-          class="btn btn-outline-success position-absolute top-0 end-0"
-          data-bs-target="#ModalEdit"
-          data-bs-toggle="modal"
-        >
-          + Tambah Produk
-        </button> -->
         <button
           class="btn btn-outline-success position-absolute top-0 end-0"
           data-bs-target="#ModalAdd"
@@ -19,7 +12,7 @@
         >
           + Tambah Produk
         </button>
-        </div>            
+      </div>            
     <hr>
     <!-- product -->
     @if($products->count() > 0)
@@ -102,7 +95,6 @@
                   </div>
                 </div>
                 <div class="modal-footer">
-                  <!-- <button class="btn btn-danger" data-bs-dismiss="modal">Batal</button> -->
                   <button class="btn btn-success" type="submit" >Tambahkan</button>
                 </div>
               </div>
@@ -180,8 +172,6 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
           <div class="modal-body ">
-          
-            <!-- <iframe src="https://example.com" width="100%" height="400"></iframe> -->
             <form id="editForm{{ $product->id }}" action="{{ route('products.update', $product->id ) }}" enctype="multipart/form-data" class="row g-2" method="POST">
               @foreach ($ulasans as $ulasan)
               @if ($ulasan->id_product == $product->id)

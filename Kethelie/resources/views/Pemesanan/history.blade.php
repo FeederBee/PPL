@@ -67,7 +67,6 @@
                   </div>
                     <div class="col text-start mt-3">
                       <label for="inputStok" class="form-label text-success">Ulasan Anda</label>
-                      <!-- <input type="text" rows="4" cols="50" name="ulasan" class="form-control border border-2 border-success  @error('stok')is-invalid @enderror" id="inputStok"/> -->
                       <textarea rows="4" cols="50" name="ulasan" class="form-control border border-2 border-success  @error('stok')is-invalid @enderror" id="ulasan"></textarea>
                       @error('stok')
                         <div class="invalid-feedback">

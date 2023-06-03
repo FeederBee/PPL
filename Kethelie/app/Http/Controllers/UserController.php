@@ -100,7 +100,7 @@ class UserController extends Controller
 
     public function update(Request $request)
     {
-        // return $request->file('image')->store();
+        // 
         $user = Auth::user();
         $UserValid = $request->validate([
             'nama' => 'required',
@@ -111,7 +111,7 @@ class UserController extends Controller
             'email' => 'required',
             'image'=> 'image|mimes:jpeg,png,jpg,gif|max:3024',
             'password' => 'required|confirmed|max:12'
-            // Tambahkan validasi lain sesuai kebutuhan
+            //
         ]);
 
         if ($request->file('image')) {

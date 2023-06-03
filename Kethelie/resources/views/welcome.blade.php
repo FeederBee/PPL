@@ -26,8 +26,6 @@
         </a>
       </div>
     </nav>     
-            
-        <!-- </div> -->
         <h1 class="position-relative m-4 p-3 text-md-center text-success">Selamat Datang di Ke The Lie</h1>
 
     <div class="position-relative border border-3 border-success m-4 p-5 mx-auto bg-light" style="width: 50%; --bs-bg-opacity: 0.5">

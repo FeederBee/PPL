@@ -56,7 +56,7 @@
         <h4 class="text-success text-center mt-2"> Daftar Produk </h4>
       </div>
       <div class="col m-4" >
-        <a href="{{ url('/pemesanan') }}"><img src="images/orders.png" class="object-fit-contain rounded-circle  border border-4 border-success m-4" alt="Maintenance" width="200" /></a>
+        <a href="{{ url('/pemesanan') }}"><img src="images/orders.png" class="rounded-circle  border border-4 border-success p-4" alt="Maintenance" width="200" /></a>
         <h4 class="text-success text-center mt-2"> Pesanan </h4>
       </div>
       <div class="col m-4" ></div>

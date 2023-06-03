@@ -20,7 +20,6 @@ class PesananController extends Controller
 
     public function store(Request $request)
     {
-        // return $request->file('image')->store();
         $Valid = $request->validate([
             'id_product' => 'required',
             'id_owner' => 'required',

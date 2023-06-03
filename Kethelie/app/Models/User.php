@@ -47,7 +47,7 @@ class User extends Authenticatable
      * @var array<string, string>
      */
     protected $casts = [
-        // 'status' => 'enum',
+ 
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
@@ -70,5 +70,10 @@ class User extends Authenticatable
     public function listTeman()
     {
         return $this->hasMany(ListTeman::class);
+    }
+
+    public function pesan()
+    {
+        return $this->hasMany(Pesan::class);
     }
 }

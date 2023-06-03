@@ -21,10 +21,10 @@ class ProductController extends Controller
         if (Auth::user()->isOwner()){
             $products = Product::whereHas('user', function ($query) use ($user) {
                 $query->where('user_id', $user->id);
-            })->get();
+            })->orderBy('created_at', 'desc')->get();
 
             $ulasans = Ulasan::all();
-            return view('products.owner',compact('user','products', 'ulasans'))->with('i', (request()->input('page', 1) - 1) * 5);
+            return view('products.owner',compact('user','products', 'ulasans'));
 
         }else {
             $products = Product::all();
@@ -32,14 +32,11 @@ class ProductController extends Controller
             return view('products.customer',compact('products', 'ulasans', 'user'));
 
         }
-
-        // return view('products.index',compact('customerproduk','user','products'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     public function store(Request $request)
     {
-        // return $request->file('image')->store()
-;
+        
         $ImageValid = $request->validate([
 
             'nama' => 'required',
@@ -85,7 +82,7 @@ class ProductController extends Controller
     {
         $product->delete();
   
-        return redirect()->route('products.index')->with('success','Product deleted successfully');
+        return redirect()->back();
     }
 
     public function userid()

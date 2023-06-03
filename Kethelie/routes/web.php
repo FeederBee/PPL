@@ -10,6 +10,7 @@ use App\Http\Controllers\BahanController;
 use App\Http\Controllers\ListTemanController;
 use App\Http\Controllers\PesananController;
 use App\Http\Controllers\UlasanController;
+use App\Http\Controllers\PesanController;
 
 // Starter Page
 Route::get('/', function () {
@@ -77,20 +78,13 @@ Route::resource('ulasans', UlasanController::class);
 Route::get('/ulasan', [UlasanController::class, 'show']);
 // End Route
 
-// Route::get('/register', [UserController::class, 'showreg'])->name('status.user');
-// Route::get('/products', [ProductController::class, 'showUlasan'])->name('products.ulasan');
-// Route::group(['prefix' => 'products'], function () {
-//     Route::get('/', [ProductController::class, 'index'])->name('products.index');
-//     Route::post('/', [ProductController::class, 'store'])->name('products.store');
-//     // Definisikan rute lain yang berhubungan dengan ProductController
+// Pesan
+Route::get('/messages', [PesanController::class, 'index'])->name('messages.index');
+Route::get('/messages/{user}', [PesanController::class, 'show'])->name('messages.show');
+Route::post('/messages/{user}', [PesanController::class, 'store'])->name('messages.store');
 
-//     // Route::get('/', [UlasanController::class, 'index'])->name('products.index');
-//     Route::post('/', [UlasanController::class, 'show'])->name('ulasan.show');
-//     // Definisikan rute lain yang berhubungan dengan AnotherController
-// });
-// Route::get('/owner', function () {
-//     return view('Teman.owner_list');
-// });
-// Route::delete('/Bahan/{id}', [BahanController::class, 'destroy'])->name('Bahan.destroy');
-// Route::get('/products', [PesananController::class, 'index'])->name('pesanans.index');
-// Route::get('/historypemesanan', [UlasanController::class, 'index']);
+Route::get('/pesan', function () {
+    return view('message.pesan');
+});
+// End Pesan Section
+
