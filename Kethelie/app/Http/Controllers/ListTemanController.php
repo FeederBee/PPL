@@ -61,10 +61,11 @@ class ListTemanController extends Controller
         return redirect()->route('owners.index');
     }
 
-    public function destroy(ListTeman $teman)
+    public function destroy($id)
     {
+        $teman = ListTeman::findOrFail($id);
         $teman->delete();
-  
-        return redirect()->route('owners.index')->with('success','Product deleted successfully');
+        return redirect()->back()->with('success', 'Teman berhasil dihapus');
+        // return redirect()->route('owners.index')->with('success','Product deleted successfully');
     }
 }

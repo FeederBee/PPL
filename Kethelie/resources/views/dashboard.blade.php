@@ -34,24 +34,32 @@
     <div class="row p-3 position-relative rounded text-center">
       @if (Auth::user()-> isOwner())
       <div class="col m-4" >
-        <a href="{{ route('products.index') }}"><img src="images/ke the lie.jpg" class="rounded-circle  border border-4 border-success" alt="Produk" width="300" /></a>
+        <a href="{{ route('products.index') }}"><img src="images/produk.png" class="rounded-circle  border border-4 border-success p-4" alt="Produk" width="200" /></a>
+        <h4 class="text-success text-center mt-2"> Daftar Produk </h4>
       </div>
       <div class="col m-4" >
-        <a href="{{ route('Bahan.index') }}"><img src="images/ke the lie.jpg" class="rounded-circle  border border-4 border-success" alt="Maintenance" width="300" /></a>
+        <a href="{{ route('Bahan.index') }}"><img src="images/Bahan.png" class="rounded-circle  border border-4 border-success p-4" alt="Maintenance" width="200" /></a>
+        <h4 class="text-success text-center mt-2"> Daftar Bahan Baku </h4>
       </div> 
       <div class="col m-4" >
-        <a href="{{ route('owners.index') }}"><img src="images/ke the lie.jpg" class="rounded-circle  border border-4 border-success" alt="Maintenance" width="300" /></a>
+        <a href="{{ route('owners.index') }}"><img src="images/komunitas.png" class="rounded-circle  border border-4 border-success p-4" alt="Maintenance" width="200" /></a>
+        <h4 class="text-success text-center mt-2"> Komunitas </h4>
       </div>
       <div class="col m-4" >
-        <a href="{{ url('/pemesanan') }}"><img src="images/ke the lie.jpg" class="rounded-circle  border border-4 border-success" alt="Maintenance" width="300" /></a>
+        <a href="{{ url('/pemesanan') }}"><img src="images/orders.png" class="rounded-circle  border border-4 border-success p-4" alt="Maintenance" width="200" /></a>
+        <h4 class="text-success text-center mt-2"> Daftar Pesanan </h4>
       </div>
       @else
+      <div class="col m-4" ></div>
       <div class="col m-4" >
-        <a href="{{ route('products.index') }}"><img src="images/ke the lie.jpg" class="rounded-circle border border-4 border-success" alt="Maintenance" width="300" /></a>
+        <a href="{{ route('products.index') }}"><img src="images/produk.png" class="rounded-circle border border-4 border-success p-4" alt="Maintenance" width="200" /></a>
+        <h4 class="text-success text-center mt-2"> Daftar Produk </h4>
       </div>
       <div class="col m-4" >
-        <a href="{{ url('/pemesanan') }}"><img src="images/ke the lie.jpg" class="rounded-circle  border border-4 border-success" alt="Maintenance" width="300" /></a>
+        <a href="{{ url('/pemesanan') }}"><img src="images/orders.png" class="object-fit-contain rounded-circle  border border-4 border-success m-4" alt="Maintenance" width="200" /></a>
+        <h4 class="text-success text-center mt-2"> Pesanan </h4>
       </div>
+      <div class="col m-4" ></div>
         @endif
     </div>
 
