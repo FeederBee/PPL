@@ -102,9 +102,9 @@
           <!-- foto -->
           <div>
           @if ($user->image)
-              <img src="{{ asset('storage/' .$user->image) }}" class="img-thumbnail mt-3 mb-3 rounded-circle"  alt="foto User" style="width: 170px" />
+              <img src="{{ asset('storage/' .$user->image) }}" class="img-thumbnail mt-3 mb-3 rounded-circle"  alt="foto User" style="width: 170px; height:170px;"  />
             @else
-              <img src="images/ke the lie.jpg" class="img-thumbnail  mt-3 mb-3 rounded-circle"  alt="foto User"   style="width: 170px" />
+              <img src="images/ke the lie.jpg" class="img-thumbnail  mt-3 mb-3 rounded-circle"  alt="foto User" style="width: 170px; height:170px;" />
 
             @endif
             <h4 class="form-label text-success text-center">{{ $user-> foto }}</h4>
@@ -135,7 +135,8 @@
             <input type="hidden" name="jenis_kelamin" value="{{ $user-> jenis_kelamin }}">
             <input type="hidden" name="no_hp" value="{{ $user-> no_hp }}">
             <input type="hidden" name="image" value="{{ $user-> image }}">
-            <button class="btn btn-success" type="submit" >+add friend </button>
+            <a href="/profile/{{ $user-> id }}" class="btn btn-outline-success" type="submit" >Lihat Profile </a>
+            <button class="btn btn-success" type="submit" >+Add Friend </button>
           </form>
         </div>
 

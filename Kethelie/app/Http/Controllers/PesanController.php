@@ -15,12 +15,14 @@ class PesanController extends Controller
     public function index()
     {
         // Ambil daftar pengguna
+        $sender = Auth::user();
         $users = User::where('id', '!=', auth()->user()->id)
                 ->where('status', '=', 'Owner')
                 ->get();
-
-
-        return view('message.index', compact('users', 'temans'));
+        $temans=ListTeman::where('user_id', '=', $sender->id)
+        ->where('status','=','Friend')
+                ->get();
+        return view('message.index', compact('users', 'sender', 'temans'));
     }
 
     public function show(User $user)

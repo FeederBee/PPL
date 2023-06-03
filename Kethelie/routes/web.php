@@ -47,7 +47,8 @@ Route::middleware('auth')->group(function () {
     
 });
 
-Route::get('/profile', [UserController::class, 'show'])->name('profile');
+Route::get('/profile', [UserController::class, 'profile'])->name('profile');
+Route::get('/profile/{id}', [UserController::class, 'show']);
 // End Route
 
 // Route Products
