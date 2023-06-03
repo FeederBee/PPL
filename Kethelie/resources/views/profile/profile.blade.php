@@ -32,9 +32,9 @@
     <div class="vl position-absolute border border-success border-3" style="height: 40%; top: 38%; left: 120px"></div>
 
     
-    <div class="position-relative">
+    <div class="position-absolute img-thumbnail border border-1 rounded-circle" style=" top:150px; left:90px;  ">
       @if (Auth::user()->image)
-            <img src="{{ asset('storage/' .$user->image) }}" class="border border-success border-4 position-relative" alt="Profile Image"  style="margin: 70px 0 0 50px; width:200px; top: 50px">
+            <img src="{{ asset('storage/' .$user->image) }}" class="border border-success border-4 position-relative object-fit-cover rounded-circle" alt="Profile Image"  style="width:170px; height: 170px;">
       @else
             <svg xmlns="http://www.w3.org/2000/svg" class="ionicon border-success" viewBox="0 0 512 512" width="150" style="margin: 70px 0 0 50px">
               <path
@@ -48,12 +48,12 @@
     </div>
 
     <div class="position-relative ms-2 ps-3 me-2 pe-3" >
-      <p class="position-relative" style="left: 250px; top: -15px">{{ $user->nama }}</p>
-      <p class="position-relative" style="right: -80%; top: -20px" >Status : <span>{{ $user->status }}</span></p>
-      <p class="position-relative" style="left: 250px; top: -55px">{{ $user->jenis_kelamin }} |    ({{ $user->umur }}) </p>
-      <div class="position-relative" style="top: 20px; left:120px;">
-        <p>No HP : {{ $user->no_hp }}</p>
-        <p> Alamat : {{ $user->alamat }}</p>
+      <h4 class="position-relative" style="left: 270px; top: 155px">{{ $user->nama }}</h4>
+      <a class="position-relative border border-2 border-success m-2 p-1 fs-5 text-success rounded" style="right: -30%; top: 121px" >{{ $user->status }}</a>
+      <h6 class="position-relative" style="left: 230px; top: 140px">{{ $user->jenis_kelamin }} |    ({{ $user->umur }}) </h6>
+      <div class="position-relative" style="top: 160px; left:120px;">
+        <h6> No HP  : {{ $user->no_hp }}</h6>
+        <h6> Alamat : {{ $user->alamat }}</h6>
       </div>
     </div>
 
@@ -61,8 +61,8 @@
       href="#exampleModalToggle"
       data-bs-target="#exampleModalToggle"
       data-bs-toggle="modal"
-      class="position-absolute fixed-bottom end-0 translate-middle-y"
-      style="margin-bottom: 7%; left: 87%"
+      class="position-absolute translate-middle-y btn btn-success"
+      style="margin-bottom: 7%; left: 80%; bottom:0;"
     >
       Edit Akun
     </a>
