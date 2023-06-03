@@ -1,3 +1,5 @@
+# Rename this file .env and copy/cut then paste to folder Kethelie
+
 APP_NAME=Laravel
 APP_ENV=local
 APP_KEY=base64:VEYg4HWvs6EkZcAMcd9rK3kZFVCgGfT8Cogi8Rd0Ils=
