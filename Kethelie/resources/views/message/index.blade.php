@@ -76,10 +76,10 @@
           </div>
           <div class="py-3 px-4 border-top position-absolute" style="top:480px; width:835px">
             <div class="input-group">
-              <form method="post" class="input-group" action="{{ route('messages.store', $user->id_teman_user) }}">
+              <form method="post" class="input-group" action="">
                 @csrf
-                <input type="text" name="message" class="form-control" placeholder="Ketik pesan Anda">
-                <button class="btn btn-primary">Send</button>
+                <input type="text" name="message" class="form-control" placeholder="Ketik pesan Anda" disabled>
+                <button class="btn btn-primary" disabled>Send</button>
               </form>
             </div>
           </div>

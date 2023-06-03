@@ -69,11 +69,10 @@
         @endif
     </div>
 
-    <div class="position-absolute m-2 p-2 bottom-0 end-0" style="right:50px; ">
+    <div class="position-absolute m-2 p-2 bottom-0 end-0">
       <a href="{{ route('messages.index') }}">
         <img src="/icons/chat.png" width=50 alt="">
       </a>
-
     </div>
 
     <script
