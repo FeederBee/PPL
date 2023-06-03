@@ -33,17 +33,13 @@ class ListTemanController extends Controller
                             ->get(); 
                 return view('Teman.friend_list', compact('listTeman', 'userOwners'));
             }
-
-            // $temans=ListTeman::where('user_id', $loggedInUserId);
         }
     }
 
 
     public function create()
     {
-        // $users = User::pluck('nama', 'id');
-        
-        // // return view('teman.create', ['users' => $users]);
+        $users = User::pluck('nama', 'id');
         return redirect()->route('owners.index');
     }
 
@@ -71,35 +67,4 @@ class ListTemanController extends Controller
   
         return redirect()->route('owners.index')->with('success','Product deleted successfully');
     }
-
-    // public function update(Request $request, Pesanan $pesanan)
-    // {
-    //     if (Auth::user()->isOwner()){
-    //         $UpdateValid = $request->validate([
-    //             'status'=> 'required',
-    //         ]);
-    //     }else{
-    //         $UpdateValid = $request->validate([
-    //             'jumlah' => 'required',
-    //         ]);
-    //     }
-  
-    //     $pesanan->update($UpdateValid);
-  
-    //     return redirect()->route('pesanans.show');
-    // }
-
-    // public function friend()
-    // {
-    //     // $temans = ListTeman::whereHas('user', function ($query) use ($user) {
-    //     //     $query->where('user_id', $user->id);
-    //     // })->get();
-
-    //     $temans=ListTeman::all();
-
-    //     return view('owners.index',compact('temans'));
-        
-    // }
-
-
 }

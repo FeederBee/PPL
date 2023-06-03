@@ -52,32 +52,7 @@ class UserController extends Controller
         ]);
     
         // Jika operasi penyimpanan berhasil, lakukan tindakan selanjutnya
-        return redirect()->route('login');
-        
-        // try {
-        //     // Lakukan operasi penyimpanan data ke tabel 'users'
-        //     User::create([
-        //         'nama' => $request->nama,
-        //         'umur' => $request-> umur,
-        //         'jenis_kelamin' => $request-> jenis_kelamin,
-        //         'no_hp' => $request-> no_hp,
-        //         'alamat' => $request-> alamat,
-        //         'status' => $request->status,
-        //         'email' => $request->email,
-        //         'password' => Hash::make($request->password),
-        //     ]);
-
-        //     // Jika operasi penyimpanan berhasil, lakukan tindakan selanjutnya
-        //     return redirect()->route('login');
-        // } catch (QueryException $e) {
-        //     // Tangkap error QueryException
-        //         // return redirect()->route('register')->with('error', 'Terjadi kesalahan dalam penyimpanan data');
-        //         return redirect()->back()->with('error', 'Terjadi kesalahan dalam penyimpanan data');
-        //         ValidationException::withMessages(errors()->all());
-        
-        // }
-
-        
+        return redirect()->route('login');        
     }
   
     public function login()

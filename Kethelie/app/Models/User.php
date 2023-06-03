@@ -57,11 +57,6 @@ class User extends Authenticatable
     return $this->hasMany(Product::class);
     }
 
-    // public function uploadImage()
-    // {
-    // return $this->hasMany(UploadImage::class);
-    // }
-
     public function bahan()
     {
     return $this->hasMany(Bahan::class);

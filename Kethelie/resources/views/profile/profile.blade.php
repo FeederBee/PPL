@@ -75,31 +75,56 @@
         @method('PUT')
               <div class="col-md-6 position-relatie" style="left:10px">
                 <label for="inputEmail4" class="form-label">Nama</label>
-                <input name="nama" type="text" class="form-control" value="{{ $user->nama }}" />
+                <input name="nama" type="text" class="form-control @error('nama')is-invalid @enderror" value="{{ $user->nama }}"/>
+                @error('nama')
+                  <span class="invalid-feedback">{{ $message }}</span>
+                @enderror
               </div>
               <div class="col-md-6">
                 <label for="inputPassword4" class="form-label">Email</label>
-                <input name="email" type="email" class="form-control" value="{{ $user->email }}"  />
+                <input name="email" type="email" class="form-control  @error('email')is-invalid @enderror" value="{{ $user->email }}"  />
+                @error('email')
+                  <span class="invalid-feedback">{{ $message }}</span>
+                @enderror
               </div>
               <div class="col-md-6">
                 <label for="inputEmail4" class="form-label">Umur</label>
-                <input name="umur" type="text" class="form-control" value="{{ $user->umur }}" />
+                <input name="umur" type="number" class="form-control  @error('umur')is-invalid @enderror" value="{{ $user->umur }}" />
+                @error('umur')
+                  <span class="invalid-feedback">{{ $message }}</span>
+                @enderror
               </div>
               <div class="col-md-6">
                 <label for="inputPassword4" class="form-label">Password</label>
-                <input name="password" type="password" class="form-control" id="inputPassword4" />
+                <input name="password" type="password" class="form-control  @error('password')is-invalid @enderror" id="inputPassword4" />
+                @error('password')
+                  <span class="invalid-feedback">{{ $message }}</span>
+                @enderror
               </div>
               <div class="col-md-6">
-                <label for="inputEmail4" class="form-label">Jenis Kelamin</label>
-                <input name="jenis_kelamin" type="text" class="form-control" value="{{ $user->jenis_kelamin }}" />
+                <label class="form-label" for="jenis_kelamin">Jenis Kelamin</label>
+                  <select class="form-control  @error('jenis_kelamin')is-invalid @enderror" id="jenis_kelamin" name="jenis_kelamin" placeholder="{{ $user->jenis_kelamin }}">
+                    <option value="{{ $user->jenis_kelamin }}" placeholder="{{ $user->jenis_kelamin }}">{{ $user->jenis_kelamin }}</option>
+                    <option value="Laki-Laki">Laki-Laki</option>
+                    <option value="Perempuan">Perempuan</option>
+                  </select>
+                  @error('jenis_kelamins')
+                  <span class="invalid-feedback">{{ $message }}</span>
+                @enderror
               </div>
               <div class="col-md-6">
-                <label for="inputPassword4" class="form-label">Ketik Ulang Password</label>
-                <input name="password_confirmation" type="password" class="form-control" id="inputPassword4" />
+                <label for="repeat_password4" class="form-label">Ketik Ulang Password</label>
+                <input name="password_confirmation" type="password" class="form-control  @error('password_confirmation')is-invalid @enderror" id="inputPassword4" />
+                @error('password_confirmation')
+                  <span class="invalid-feedback">{{ $message }}</span>
+                @enderror
               </div>
               <div class="col-md-6">
                 <label for="inputEmail4" class="form-label">No HP</label>
-                <input name="no_hp" type="text" class="form-control" value="{{ $user->no_hp }}" />
+                <input name="no_hp" type="number" class="form-control @error('no_hp')is-invalid @enderror" value="{{ $user->no_hp }}" />
+                @error('no_hp')
+                  <span class="invalid-feedback">{{ $message }}</span>
+                @enderror
               </div>
               <div class="col-md-6">
                   <label for="formFile" class="form-label text-success text-start">Foto</label>
@@ -112,7 +137,10 @@
               </div>
               <div class="col-md-6">
                 <label for="inputEmail4" class="form-label">Alamat</label>
-                <input name="alamat" type="text" class="form-control" value="{{ $user->alamat }}"  />
+                <input name="alamat" type="text" class="form-control @error('alamat')is-invalid @enderror" value="{{ $user->alamat }}"  />
+                @error('alamat')
+                  <span class="invalid-feedback">{{ $message }}</span>
+                @enderror
               </div>
               <div class="col-md-6"></div>
             </div>
@@ -124,8 +152,6 @@
         </div>
       </div>
     </div>
-
-    <!-- <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Open first modal</button> -->
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"

@@ -28,12 +28,9 @@ class PesananController extends Controller
             'jumlah' => 'required',
         ]);
 
-        // $Valid['id_product']=product()->id;
         $Valid['user_id']=auth()->user()->id;
 
         Pesanan::create($Valid);
-        // Product::create($request->all());
-        // return redirect()->route('pesanans.index');
         return redirect()->back();
     }
 
@@ -66,17 +63,6 @@ class PesananController extends Controller
     {
         $user = Auth::user();
         $userId=Auth::id();
-        // if (Auth::user()->isOwner()){
-        //     $userId=Auth::id();
-        //     $pesanans = Pesanan::where('id_owner', $userId)->get();
-        //     return view('Pemesanan.pemesanan', compact('pesanans', 'user'));
-        // } else {
-            
-        //     $pesanans = Pesanan::whereHas('user', function ($query) use ($user) {
-        //         $query->where('user_id', $user->id);
-        //     })->get();
-        //     return view('Pemesanan.pemesanan', compact('pesanans', 'user'));
-        // }
         $pesanansOwner = Pesanan::where('id_owner', $userId)->get();
         $pesanansCust = Pesanan::whereHas('user', function ($query) use ($user) {
                     $query->where('user_id', $user->id);
